@@ -5,9 +5,9 @@ public class Main {
         Scanner reader = new Scanner(System.in);
         try {
             System.out.print("Numero uno: ");
-            double num1 = reader.nextDouble();
+            int num1 = reader.nextInt();
             System.out.print("Numero dos: ");
-            double num2 = reader.nextDouble();
+            int num2 = reader.nextInt();
 
             System.out.println("Que operacion desea realizar? Ingrese el numero apropiado para la operacion.");
             System.out.println("1 - Suma");
@@ -27,10 +27,10 @@ public class Main {
                     System.out.println(num1 + " * " + num2 + " = " + (num1 * num2));
                     break;
                 case 4:
-                    if (num2 == 0){
-                        System.out.println("Error. Division por cero no permitida.");
-                    } else {
+                    try {
                         System.out.println(num1 + " / " + num2 + " = " + (num1 / num2));
+                    } catch (ArithmeticException e) {
+                        System.out.println("Error. Division por cero no permitida.");
                     }
                     break;
             }
